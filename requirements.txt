@@ -1,4 +1,3 @@
 discord.py
 PyNaCl==1.4.0
-discord.py-self
 Flask==2.0.2

@@ -1,0 +1,2 @@
+discord.py
+PyNaCl=1.4.0

@@ -1,6 +1,12 @@
 import discord
 import keep_alive
 import os
+import io
+import aiohttp
+from discord import Webhook, AsyncWebhookAdapter
+from xlist import linkpls
+from xlist import namepls
+from xlist import sub
 from discord.ext import commands
 
 class Music(commands.Cog):
@@ -10,46 +16,16 @@ class Music(commands.Cog):
     @commands.command()
     async def join(self, ctx):
       channel = ctx.author.voice.channel
-      await channel.connect()
+      voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+
+      if voice == None:
+        await channel.connect()
+      else:
+        await ctx.send("I'm already connected!")
+
     @commands.command()
     async def leave(self, ctx):
         await ctx.voice_client.disconnect()
-
-    @commands.command()
-    async def jhits(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072627818496010/Japan_Hits.pls')
-
-    @commands.command()
-    async def jclub(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072627973689344/J-Club_Powerplay_HipHop.pls')
-    
-    @commands.command()
-    async def jkawaii(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072628313432064/J-Pop_Powerplay_Kawaii.pls')
-    
-    @commands.command()
-    async def jpop(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072628485410927/J-Pop_Powerplay.pls')
-    
-    @commands.command()
-    async def jsakura(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072628657356811/J-Pop_Sakura.pls')
-    
-    @commands.command()
-    async def jrock(self, ctx):
-        await ctx.send('ccplay https://cdn.discordapp.com/attachments/613417127143014520/923072628846112788/J-Rock_PowerPlay.pls')      
-    
-    @commands.command()
-    async def jazz(self, ctx):
-        await ctx.send('https://cdn.discordapp.com/attachments/613417127143014520/923477857622171648/Jazz_Club_Bandstand.pls')      
-    
-    @commands.command()
-    async def jazzs(self, ctx):
-        await ctx.send('https://cdn.discordapp.com/attachments/613417127143014520/923477857823502396/Jazz_Sakura.pls')        
-    
-    @commands.command()
-    async def jxmas(self, ctx):
-        await ctx.send('https://cdn.discordapp.com/attachments/613417127143014520/923477858012233748/J-Pop_Christmas_Radio.pls')    
 
     @commands.command()
     async def adr(self, ctx):
@@ -66,6 +42,36 @@ class Music(commands.Cog):
       embed.add_field(name="jxmas", value="[J-Pop Christmas Radio](https://asiadreamradio.torontocast.stream/stations/christmasplayer.html)", inline=False)
       await ctx.send(embed=embed)
 
+    @commands.command(aliases=['p'])
+    async def play(self, ctx, *, args ):
+      channel = ctx.author.voice.channel
+      voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+      args = args.lower()
+
+      if voice == None:
+        await channel.connect()
+        # check voice channel
+      if args in sub :
+        i = sub.index(args)
+        async with aiohttp.ClientSession() as session:
+          async with session.get(linkpls[i]) as resp:
+            if resp.status != 200:
+                  return await ctx.send('Could not download file...')
+            data = io.BytesIO(await resp.read())
+            await ctx.send('ccplay' , file=discord.File(data, namepls[i]))
+      else :
+        await ctx.send("-_- check list `xxadr`")      
+    
+    @commands.command()
+    async def test(self , ctx , *, args ):
+      async with aiohttp.ClientSession() as session:
+
+        webhook = Webhook.from_url('https://discord.com/api/webhooks/923682101847552011/ZNWvzljIMCv3pVsqXsjFZZykzJKJBkQz_8lPeGA5x2BQTQO-lB1_DyILxsc1-TwSGrOS', adapter=AsyncWebhookAdapter(session))
+        await webhook.send(args , username=ctx.author.name, avatar_url=ctx.author.avatar_url)
+            
+    @commands.command()
+    async def ping(self , ctx ):
+      await ctx.send(f'Pong! In {round(bot.latency * 1000)}ms')
 
 
 bot = commands.Bot(command_prefix=("xx"), case_insensitive=True)

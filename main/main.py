@@ -82,4 +82,4 @@ async def on_ready():
 
 keep_alive.keep_alive()
 bot.add_cog(Music(bot))
-bot.run('OTIyNzMzMzQ2NjY3MjQxNDcz.YcFwqQ.XL8oTLfsdfF9yX3bAX0EHuyHxug'))
+bot.run('OTIyNzMzMzQ2NjY3MjQxNDcz.YcFwqQ.XL8oTLfsdfF9yX3bAX0EHuyHxug')

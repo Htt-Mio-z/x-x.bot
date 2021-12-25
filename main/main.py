@@ -12,9 +12,6 @@ from discord.ext import commands
 import requests, json
 import certifi
 import ssl
-url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455", verify=False)
-text = url.text
-print(type(text))
 #test end
 class Music(commands.Cog):
     def __init__(self, bot):
@@ -24,11 +21,12 @@ class Music(commands.Cog):
     async def join(self, ctx):
       channel = ctx.author.voice.channel
       voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
-
-      if voice == None:
-        await channel.connect()
-      else:
-        await ctx.send("I'm already connected!")
+        
+    @commands.command()
+    async def test(self, ctx):
+    url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455", verify=False)
+    text = url.text
+        await ctx.send(text)
 
     @commands.command()
     async def leave(self, ctx):

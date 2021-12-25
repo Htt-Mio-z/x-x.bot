@@ -112,8 +112,8 @@ class Music(commands.Cog):
     async def currentsong(self, ctx, *, args):
         args = args.lower()
         if args in x[0]['sub']:
-            i = sub.index(args)
-        url = requests.get(cslink[i], verify=False)
+            i = x[0]['sub'].index(args)
+        url = requests.get(x[0]['cslink'][i], verify=False)
         text = url.text
         cs = json.loads(text)
         songtitle = cs["m_Item2"]["Title"]

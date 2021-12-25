@@ -8,7 +8,20 @@ from xlist import linkpls
 from xlist import namepls
 from xlist import sub
 from discord.ext import commands
+#testing part
+import json, requests 
 
+url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455")
+text = url.text
+
+data = json.loads(text)
+
+user = data[0]
+print(user['name'])
+
+address = user['address']
+print(text)
+#test end
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

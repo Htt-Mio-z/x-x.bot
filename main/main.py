@@ -118,7 +118,7 @@ class Music(commands.Cog):
         songtitle = cs["m_Item2"]["Title"]
         songpic = cs["m_Item2"]["Picture"]
         artist = cs["m_Item2"]["Artist"]
-        timestamp = cs["m_Item2"]["duration"]  # need converting -_-
+        timestamp = cs["m_Item2"]["Duration"]  # need converting -_-
         embed = discord.Embed(title=songtitle)
         embed.set_author(name=artist)
         embed.set_thumbnail(url=songpic)

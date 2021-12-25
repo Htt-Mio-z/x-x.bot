@@ -4,10 +4,6 @@ import os
 import io
 import aiohttp
 from discord import Webhook, AsyncWebhookAdapter
-from xlist import linkpls
-from xlist import namepls
-from xlist import sub
-from xlist import cslink
 from discord.ext import commands
 import requests, json
 #load json
@@ -120,8 +116,8 @@ class Music(commands.Cog):
         songpic = cs["m_Item2"]["Picture"]
         artist = cs["m_Item2"]["Artist"]
         timestamp = cs["m_Item2"]["Duration"]  # need converting -_-
-        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + songtitle.replace(' ', '_'))
-        embed.set_author(name=artist , url="https://www.google.com/search?q=" + artist.replace(' ', '_'))
+        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + songtitle.replace(' ', '+'))
+        embed.set_author(name=artist , url="https://www.google.com/search?q=" + artist.replace(' ', '+'))
         embed.set_thumbnail(url=songpic)
         embed.set_footer(text=timestamp)
         await ctx.send(embed=embed)

@@ -1,0 +1,48 @@
+[
+  {
+    "sub": [
+      "jhits",
+      "jpop",
+      "jkawaii",
+      "jsakura",
+      "jrock",
+      "jclub",
+      "jazzs",
+      "jazz",
+      "jxmas"
+    ],
+    "namepls": [
+      "Japan Hits.pls",
+      "J-Pop Powerplay.pls",
+      "J-Pop Powerplay Kawaii.pls",
+      "J-Pop Sakura.pls",
+      "J-Rock_PowerPlay",
+      "J-Club Powerplay HipHop.pls",
+      "Jazz Sakura.pls",
+      "Jazz Club Bandstand.pls",
+      "J-Pop Christmas Radio.pls"
+    ],
+    "linkpls": [
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072627818496010/Japan_Hits.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072628485410927/J-Pop_Powerplay.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072628313432064/J-Pop_Powerplay_Kawaii.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072628657356811/J-Pop_Sakura.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072628846112788/J-Rock_PowerPlay.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923072627973689344/J-Club_Powerplay_HipHop.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923477857823502396/Jazz_Sakura.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923477857622171648/Jazz_Club_Bandstand.pls",
+      "https://cdn.discordapp.com/attachments/613417127143014520/923477858012233748/J-Pop_Christmas_Radio.pls"
+    ],
+    "cslink": [
+      "https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json",
+      "https://listen.samcloud.com/webapi/station/101976/history/npe?token=6075532892f2f66b3a45468a26d8b61403c0152a&format=json",
+      "https://listen.samcloud.com/webapi/station/77836/history/npe?token=17ea9158ac026e12bff74db9bddbf8a6de2c23cd&format=json",
+      "https://listen.samcloud.com/webapi/station/77726/history/npe?token=cb8691400659ddb378bb39eb53bd8a7ae653161b&format=json",
+      "https://listen.samcloud.com/webapi/station/78062/history/npe?token=e01dfb25370ccec1df2bd96c15d47ff89b6bb62f&format=json",
+      "https://listen.samcloud.com/webapi/station/77996/history/npe?token=889c64fbb7226ba0e03334e7490badae370d6402&format=json",
+      "https://listen.samcloud.com/webapi/station/110597/history/npe?token=f590fe31de54fd277ea0ebb51c14a230a8fa77f5&format=json",
+      "jazz",
+      "jxmas"
+    ]
+  }
+]

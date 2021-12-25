@@ -111,7 +111,7 @@ class Music(commands.Cog):
     @commands.command(aliases=["cs"])
     async def currentsong(self, ctx, *, args):
         args = args.lower()
-        if args in x[0]['sub'][i]:
+        if args in x[0]['sub']:
             i = sub.index(args)
         url = requests.get(cslink[i], verify=False)
         text = url.text

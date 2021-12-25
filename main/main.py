@@ -9,11 +9,12 @@ from xlist import namepls
 from xlist import sub
 from xlist import cslink
 from discord.ext import commands
-
-# testing part
 import requests, json
-
-# test end
+#load json
+import json
+xlist = open('xlist.json')
+x = json.load(xlist)
+# --
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -110,7 +111,7 @@ class Music(commands.Cog):
     @commands.command(aliases=["cs"])
     async def currentsong(self, ctx, *, args):
         args = args.lower()
-        if args in sub:
+        if args in x[0]['sub'][i]:
             i = sub.index(args)
         url = requests.get(cslink[i], verify=False)
         text = url.text

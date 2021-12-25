@@ -97,14 +97,14 @@ class Music(commands.Cog):
         if voice == None:
             await channel.connect()
             # check voice channel
-        if args in sub:
-            i = sub.index(args)
+        if args in x[0]['sub']:
+            i = x[0]['sub'].index(args)
             async with aiohttp.ClientSession() as session:
-                async with session.get(linkpls[i]) as resp:
+                async with session.get(x[0]['linkpls'][i]) as resp:
                     if resp.status != 200:
                         return await ctx.send("Could not download file...")
                     data = io.BytesIO(await resp.read())
-                    await ctx.send("ccplay", file=discord.File(data, namepls[i]))
+                    await ctx.send("ccplay", file=discord.File(data, x[0]['namepls'][i]))
         else:
             await ctx.send("-_- check list `xxadr`")
 
@@ -120,8 +120,8 @@ class Music(commands.Cog):
         songpic = cs["m_Item2"]["Picture"]
         artist = cs["m_Item2"]["Artist"]
         timestamp = cs["m_Item2"]["Duration"]  # need converting -_-
-        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + songtitle)
-        embed.set_author(name=artist , url="https://www.google.com/search?q=" + artist)
+        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + songtitle.replace(' ', '_'))
+        embed.set_author(name=artist , url="https://www.google.com/search?q=" + artist.replace(' ', '_'))
         embed.set_thumbnail(url=songpic)
         embed.set_footer(text=timestamp)
         await ctx.send(embed=embed)

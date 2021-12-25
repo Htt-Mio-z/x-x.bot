@@ -10,7 +10,8 @@ from xlist import sub
 from discord.ext import commands
 #testing part
 import requests, json
-
+import certifi
+import ssl
 url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455")
 text = url.text
 print(type(text))

@@ -12,7 +12,7 @@ from discord.ext import commands
 import requests, json
 #load json
 import json
-xlist = open('xlist.json')
+xlist = open('main/xlist.json')
 x = json.load(xlist)
 # --
 class Music(commands.Cog):

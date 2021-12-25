@@ -14,7 +14,7 @@ import certifi
 import ssl
 
 ssl.SSLContext.verify_mode = ssl.VerifyMode.CERT_OPTIONAL
-url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455")
+url = requests.get("https://listen.samcloud.com/webapi/station/78063/history/npe?token=cf8d100d2f5e841ecdb8428e14bab72b1b281bfe&format=json&_=1640289432455",verify=True, cert=['main/gdig2.crt'])
 text = url.text
 print(type(text))
 #test end

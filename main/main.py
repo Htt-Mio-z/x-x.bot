@@ -6,6 +6,7 @@ import aiohttp
 from discord import Webhook, AsyncWebhookAdapter
 from discord.ext import commands
 import isodate
+import urllib.parse
 import requests, json
 #load json
 import json
@@ -117,8 +118,8 @@ class Music(commands.Cog):
         songpic = cs["m_Item2"]["Picture"]
         artist = cs["m_Item2"]["Artist"]
         timestamp = isodate.parse_duration(cs["m_Item2"]["Duration"])  # need converting -_-
-        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + songtitle.replace(' ', '+'))
-        embed.set_author(name=artist , url="https://www.google.com/search?q=" + artist.replace(' ', '+'))
+        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + urllib.parse.quote_plus(songtitle))
+        embed.set_author(name=artist , url="https://www.google.com/search?q=" + urllib.parse.quote_plus(artist))
         embed.set_thumbnail(url=songpic)
         embed.set_footer(text=str(timestamp)[2:7])
         await ctx.send(embed=embed)

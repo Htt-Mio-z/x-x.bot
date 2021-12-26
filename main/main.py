@@ -111,16 +111,17 @@ class Music(commands.Cog):
         args = args.lower()
         if args in x[0]['sub']:
             i = x[0]['sub'].index(args)
-        url = requests.get(x[0]['cslink'][i], verify=False)
-        text = url.text
+        getjson = requests.get(x[0]['cslink'][i], verify=False)
+        text = getjson.text
         cs = json.loads(text)
         songtitle = cs["m_Item2"]["Title"]
         songpic = cs["m_Item2"]["Picture"]
         artist = cs["m_Item2"]["Artist"]
         timestamp = isodate.parse_duration(cs["m_Item2"]["Duration"])  # need converting -_-
-        embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + urllib.parse.quote_plus(songtitle))
-        embed.set_author(name=str(x[0]['namepls'][i])[:-4] , url=x[0]['adrlink'][i])
+        embed = discord.Embed(title="Now Playing :", color=0x00ffee)
+        embed.set_author(name=str(x[0]['namepls'][i])[:-4] , url=x[0]['adrlink'][i] ,  icon_url=x[0]['logo'][i])
         embed.set_thumbnail(url=songpic)
+        embed.add_field(name=artist, value="["+songtitle+"]"+"("+"https://www.google.com/search?q="+urllib.parse.quote_plus(songtitle)+")", inline=True)
         embed.set_footer(text=str(timestamp)[2:7])
         await ctx.send(embed=embed)
 

@@ -121,7 +121,7 @@ class Music(commands.Cog):
         embed = discord.Embed(title="Now Playing :", color=0x00ffee)
         embed.set_author(name=str(x[0]['namepls'][i])[:-4] , url=x[0]['adrlink'][i] ,  icon_url=x[0]['logo'][i])
         embed.set_thumbnail(url=songpic)
-        embed.add_field(name=artist, value="["+songtitle+"]"+"("+"https://www.google.com/search?q="+urllib.parse.quote_plus(songtitle)+")", inline=True)
+        embed.add_field(name=artist, value="["+songtitle+"]"+"("+"https://www.google.com/search?q="+urllib.parse.quote_plus(artist+" "+songtitle)+")", inline=True)
         embed.set_footer(text=str(timestamp)[2:7])
         await ctx.send(embed=embed)
 

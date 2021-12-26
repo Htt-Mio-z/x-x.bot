@@ -142,7 +142,7 @@ class Music(commands.Cog):
         await ctx.send(f"Pong! In {round(bot.latency * 1000)}ms")
 
 
-bot = commands.Bot(command_prefix=("xx"), case_insensitive=True)
+bot = commands.Bot(command_prefix=("zz"), case_insensitive=True)
 
 
 @bot.event

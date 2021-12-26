@@ -119,7 +119,7 @@ class Music(commands.Cog):
         artist = cs["m_Item2"]["Artist"]
         timestamp = isodate.parse_duration(cs["m_Item2"]["Duration"])  # need converting -_-
         embed = discord.Embed(title=songtitle , url="https://www.google.com/search?q=" + urllib.parse.quote_plus(songtitle))
-        embed.set_author(name=artist , url="https://www.google.com/search?q=" + urllib.parse.quote_plus(artist))
+        embed.set_author(name=str(x[0]['namepls'][i])[:-4] , url=x[0]['adrlink'][i])
         embed.set_thumbnail(url=songpic)
         embed.set_footer(text=str(timestamp)[2:7])
         await ctx.send(embed=embed)

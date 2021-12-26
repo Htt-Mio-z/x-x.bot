@@ -4,4 +4,3 @@ discord.py-self
 requests
 certifi
 isodate
-urllib

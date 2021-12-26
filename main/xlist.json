@@ -52,6 +52,17 @@
       "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/jrockpowerplay300.png",
       "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/jclubhiphop300.png",
       "https://asiadreamradio.torontocast.stream/stations/images/jazzsakuraplayer/JazzSakuraLogo512jp.png"
+    ],
+    "adrlink": [
+      "https://asiadreamradio.torontocast.stream/stations/japanhitsplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jpowerplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jkawaiiplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/natsukashiiplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jrockplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jclubplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jazzsakuraplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/jazzbandplayer.html",
+      "https://asiadreamradio.torontocast.stream/stations/christmasplayer.html"
     ]
   }
 ]

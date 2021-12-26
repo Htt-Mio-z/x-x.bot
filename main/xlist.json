@@ -43,6 +43,15 @@
       "https://listen.samcloud.com/webapi/station/110597/history/npe?token=f590fe31de54fd277ea0ebb51c14a230a8fa77f5&format=json",
       "jazz",
       "jxmas"
+    ],
+    "logo": [
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/japanhits.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/powerplayjpop16300.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/ppkawaii300.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/natsukashii500.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/jrockpowerplay300.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/japanhitsplayer/jclubhiphop300.png",
+      "https://asiadreamradio.torontocast.stream/stations/images/jazzsakuraplayer/JazzSakuraLogo512jp.png"
     ]
   }
 ]

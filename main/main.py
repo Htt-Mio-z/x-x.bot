@@ -9,7 +9,6 @@ import isodate
 import urllib.parse
 import requests, json
 #load json
-import json
 xlist = open('main/xlist.json')
 x = json.load(xlist)
 # --
@@ -25,9 +24,16 @@ class Music(commands.Cog):
         if voice == None:
             await channel.connect()
 
-    @commands.command()
-    async def leave(self, ctx):
-        await ctx.voice_client.disconnect()
+    @commands.command(name = "leave",
+                pass_context = True)
+    async def leave(ctx):
+      server = ctx.message.server
+      voice_client = bot.voice_client_in(server)
+      if voice_client:
+        await voice_client.disconnect()
+        print("<@924572543120203837> left the voice channel")
+      else:
+        print("<@924572543120203837> was not in channel")
 
     @commands.command()
     async def adr(self, ctx):
@@ -126,11 +132,10 @@ class Music(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def test(self, ctx, *, args):
+    async def Webhook(self, ctx, *, args):
         async with aiohttp.ClientSession() as session:
 
-            webhook = Webhook.from_url(
-                "https://discord.com/api/webhooks/923682101847552011/ZNWvzljIMCv3pVsqXsjFZZykzJKJBkQz_8lPeGA5x2BQTQO-lB1_DyILxsc1-TwSGrOS",
+            webhook = Webhook.from_url(os.getenv("Webhooklink"),
                 adapter=AsyncWebhookAdapter(session),
             )
             await webhook.send(

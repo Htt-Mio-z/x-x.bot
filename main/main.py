@@ -24,17 +24,10 @@ class Music(commands.Cog):
         if voice == None:
             await channel.connect()
 
-    @commands.command(name = "leave",
-                pass_context = True)
+    @commands.command()
     async def leave(self, ctx):
-      server = ctx.message.server
-      voice_client = bot.voice_client_in(server)
-      if voice_client:
-        await voice_client.disconnect()
-        print("<@924572543120203837> left the voice channel")
-      else:
-        print("<@924572543120203837> was not in channel")
-
+        await ctx.voice_client.disconnect()
+        
     @commands.command()
     async def adr(self, ctx):
         embed = discord.Embed(

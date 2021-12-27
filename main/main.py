@@ -26,7 +26,7 @@ class Music(commands.Cog):
 
     @commands.command(name = "leave",
                 pass_context = True)
-    async def leave(ctx):
+    async def leave(self, ctx):
       server = ctx.message.server
       voice_client = bot.voice_client_in(server)
       if voice_client:
